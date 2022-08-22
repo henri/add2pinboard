@@ -22,7 +22,7 @@ begin
   require 'pinboard'
 rescue LoadError
   puts "ERROR! : Missing gem \"pinboard\"."
-  puts "         Install missing gep using the following command : sudo gem install pinboard"
+  puts "         Install missing gem using the following command : sudo gem install pinboard"
   exit -1
 end
 
