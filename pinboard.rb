@@ -10,7 +10,7 @@
 # https://www.rubyinrails.com/2013/09/14/how-to-install-or-uninstall-a-gem-in-ruby/
 # https://github.com/ryw/pinboard
 
-# version 0.1 - just barly working - probably has some bugs.
+# version 0.1 - just barely working - probably has some bugs.
 
 file='./api.key'
 File.readlines(file).each do |line|
