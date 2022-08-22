@@ -11,13 +11,21 @@
 # https://github.com/ryw/pinboard
 
 # version 0.1 - just barely working - probably has some bugs.
+# version 0.2 - added a gemlist check.
 
 file='./api.key'
 File.readlines(file).each do |line|
   @apikey=line.to_s.chomp
 end
 
-require 'pinboard'
+begin
+  require 'pinboard'
+rescue LoadError
+  puts "ERROR! : Missing gem \"pinboard\"."
+  puts "         Install missing gep using the following command : sudo gem install pinboard"
+  exit -1
+end
+
 pinboard = Pinboard::Client.new(:token => "#{@apikey}") 
 
 require 'optparse'
