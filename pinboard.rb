@@ -12,8 +12,10 @@
 
 # version 0.1 - just barely working - probably has some bugs.
 # version 0.2 - added a gemlist check.
+# version 0.3 - added a current direcotry check.
 
-file='./api.key'
+partnet_dir = File.dirname(__FILE__) # use this approach if the API key is in the same directory as the script
+file="#{partnet_dir}/api.key"
 File.readlines(file).each do |line|
   @apikey=line.to_s.chomp
 end
