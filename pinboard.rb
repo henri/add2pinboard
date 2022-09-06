@@ -14,6 +14,7 @@
 # version 0.2 - added a gemlist check.
 # version 0.3 - added a current direcotry check.
 # version 0.4 - report the last added pin (better approach may be checking for errors) or at least confirming the last added URL matches the URL submitted
+# version 0.5 - some basic error capture
 
 partnet_dir = File.dirname(__FILE__) # use this approach if the API key is in the same directory as the script
 file="#{partnet_dir}/api.key"
@@ -79,17 +80,29 @@ end
 # todo - check if the URL exits and if it exists and any of the values are nill - populate them so we are not removing data from pinboard unless there is a specific "" value wich removes data for a field within pinboard.
 
 
-if @options.fetch(:flag) == nil  then
-	pinboard.add(:url => "#{@url}", :description => "#{@description}", :tags => "#{@tags}", :extended => "#{@extended}")
-else
-	pinboard.add(:url => "#{@url}", :description => "#{@description}", :tags => "#{@tags}", :extended => "#{@extended}", :toread => "")
+begin
+  if @options.fetch(:flag) == nil  then
+	  result = pinboard.add(:url => "#{@url}", :description => "#{@description}", :tags => "#{@tags}", :extended => "#{@extended}")
+  else
+	  result = pinboard.add(:url => "#{@url}", :description => "#{@description}", :tags => "#{@tags}", :extended => "#{@extended}", :toread => "")
+  end
+rescue SocketError
+  puts "                     ERROR! : Network Connection Problem"
+  exit -99
 end
 
 # report the last stored pin
-puts "last added pin"
-puts "*" * 50
-puts pinboard.posts(:results => 1).inspect
-$puts "*" * 50
+if result == "done" then
+  puts "                      ==>  pin updated / added succesfully"
+  exit 0
+end
+
+	
+# # report the last stored pin
+# puts "last added pin"
+# puts "*" * 50
+# puts pinboard.posts(:results => 1).inspect
+# $puts "*" * 50
 	
 
 #pinboard.posts(:tag => 'ruby')
