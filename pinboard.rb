@@ -13,6 +13,7 @@
 # version 0.1 - just barely working - probably has some bugs.
 # version 0.2 - added a gemlist check.
 # version 0.3 - added a current direcotry check.
+# version 0.4 - report the last added pin (better approach may be checking for errors) or at least confirming the last added URL matches the URL submitted
 
 partnet_dir = File.dirname(__FILE__) # use this approach if the API key is in the same directory as the script
 file="#{partnet_dir}/api.key"
@@ -84,6 +85,12 @@ else
 	pinboard.add(:url => "#{@url}", :description => "#{@description}", :tags => "#{@tags}", :extended => "#{@extended}", :toread => "")
 end
 
+# report the last stored pin
+puts "last added pin"
+puts "*" * 50
+puts pinboard.posts(:results => 1).inspect
+$puts "*" * 50
+	
 
 #pinboard.posts(:tag => 'ruby')
 #puts pinboard.posts.inspect
