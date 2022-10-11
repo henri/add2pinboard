@@ -12,7 +12,7 @@
 
 # version 0.1 - just barely working - probably has some bugs.
 # version 0.2 - added a gemlist check.
-# version 0.3 - added a current direcotry check.
+# version 0.3 - added a current directory check.
 # version 0.4 - report the last added pin (better approach may be checking for errors) or at least confirming the last added URL matches the URL submitted
 # version 0.5 - some basic error capture
 
