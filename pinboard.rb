@@ -10,6 +10,8 @@
 # https://www.rubyinrails.com/2013/09/14/how-to-install-or-uninstall-a-gem-in-ruby/
 # https://github.com/ryw/pinboard
 
+# Note : Works with ruby 2.6.3 - The gem this script relies upon is not compatible with some of the later versions of ruby.
+
 # version 0.1 - just barely working - probably has some bugs.
 # version 0.2 - added a gemlist check.
 # version 0.3 - added a current directory check.
