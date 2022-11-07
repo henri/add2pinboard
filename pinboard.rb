@@ -15,8 +15,9 @@
 # version 0.1 - just barely working - probably has some bugs.
 # version 0.2 - added a gemlist check.
 # version 0.3 - added a current directory check.
-# version 0.4 - report the last added pin (better approach may be checking for errors) or at least confirming the last added URL matches the URL submitted
-# version 0.5 - some basic error capture
+# version 0.4 - report the last added pin (better approach may be checking for errors) or at least confirming the last added URL matches the URL submitted.
+# version 0.5 - some basic error capture.
+# version 0.6 - improved usage information.
 
 partnet_dir = File.dirname(__FILE__) # use this approach if the API key is in the same directory as the script
 file="#{partnet_dir}/api.key"
@@ -71,11 +72,16 @@ end.parse!
 # Pre-Flight Checks
 if @options.fetch(:url) == nil || @url == nil || @options.fetch(:description) == nil || @description == nil then
     puts ""
-    puts "Required Option Usage : pinboard.rb --url http://myurl.com --description \"This is my URL!\""
+    puts `"#{__FILE__}" --help`
+    puts "" ; puts ""
+    puts "Examples and required option usage (you must specifiy at least these options) : "
     puts ""
-    puts "                        pinboard.rb -u http://myurl.com -d \"This is my URL!\""
+    puts "          pinboard.rb --url http://myurl.com --description \"This is my URL!\""
     puts ""
+    puts "          pinboard.rb -u http://myurl.com -d \"This is my URL!\""
+    puts "" ; puts ""
     exit
+	
 end
 
 
