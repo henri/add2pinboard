@@ -78,9 +78,9 @@ if @options.fetch(:url) == nil || @url == nil || @options.fetch(:description) ==
     puts "" ; puts ""
     puts "Examples and required option usage (you must specifiy at least these options) : "
     puts ""
-    puts "          pinboard.rb --url http://myurl.com --description \"This is my URL!\""
+    puts "          pinboard.rb --url \"http://myurl.com\" --description \"This is my URL!\""
     puts ""
-    puts "          pinboard.rb -u http://myurl.com -d \"This is my URL!\""
+    puts "          pinboard.rb -u \"http://myurl.com\" -d \"This is my URL!\""
     puts "" ; puts ""
     exit
 	
