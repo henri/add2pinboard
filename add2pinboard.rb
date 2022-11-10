@@ -60,7 +60,7 @@ OptionParser.new do |opts|
     @options[:tags] = true
     @tags = "#{tags}"
   end
-  opts.on("-e", "--extended \"extended\"", "list of extended information or notes- AKA description") do |extended|
+   opts.on("-e", "--extended \"extended\"", "list of extended information or notes - AKA as description within pinboard web interface)") do |extended|
     @options[:extended] = true
     @extended = "#{extended}"
   end
