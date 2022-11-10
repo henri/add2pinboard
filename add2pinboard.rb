@@ -18,6 +18,7 @@
 # version 0.4 - report the last added pin (better approach may be checking for errors) or at least confirming the last added URL matches the URL submitted.
 # version 0.5 - some basic error capture.
 # version 0.6 - improved usage information.
+# version 0.7 - improved option descriptions
 
 partnet_dir = File.dirname(__FILE__) # use this approach if the API key is in the same directory as the script
 file="#{partnet_dir}/api.key"
@@ -47,19 +48,19 @@ require 'optparse/URI'
 
 OptionParser.new do |opts|
   
-  opts.on("-u", "--url url", "URL to add into pinboard") do |url|
+  opts.on("-u", "--url \"url\"", "URL to add into pinboard") do |url|
     @options[:url] = true    
     @url = "#{url}"
   end
-  opts.on("-d", "--description description", "the description - AKA title") do |description|
+  opts.on("-d", "--description \"description\"", "the description - AKA title") do |description|
     @options[:description] = true
     @description = "#{description}"
   end
-  opts.on("-t", "--tags tags", "list of tags seperatred by spaces") do |tags|
+  opts.on("-t", "--tags \"tags\"", "list of tags seperatred by spaces") do |tags|
     @options[:tags] = true
     @tags = "#{tags}"
   end
-  opts.on("-e", "--extended extended", "list of tags seperatred by spaces - AKA description") do |extended|
+  opts.on("-e", "--extended \"extended\"", "list of extended information or notes- AKA description") do |extended|
     @options[:extended] = true
     @extended = "#{extended}"
   end
@@ -67,6 +68,7 @@ OptionParser.new do |opts|
     @options[:flag] = true
   end
 end.parse!
+
 
 
 # Pre-Flight Checks
