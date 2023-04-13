@@ -11,6 +11,7 @@
 # https://github.com/ryw/pinboard
 
 # Note : Works with ruby 2.6.3 - The gem this script relies upon is not compatible with some of the later versions of ruby.
+#                                until update, consider using rbenv or be specific with the exact path after the shebang.
 
 # version 0.1 - just barely working - probably has some bugs.
 # version 0.2 - added a gemlist check.
