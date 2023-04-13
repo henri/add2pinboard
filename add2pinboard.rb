@@ -19,6 +19,7 @@
 # version 0.5 - some basic error capture.
 # version 0.6 - improved usage information.
 # version 0.7 - improved option descriptions
+# version 0.8 - improved error capture
 
 partnet_dir = File.dirname(__FILE__) # use this approach if the API key is in the same directory as the script
 file="#{partnet_dir}/api.key"
@@ -36,8 +37,14 @@ end
 
 pinboard = Pinboard::Client.new(:token => "#{@apikey}") 
 
-require 'optparse'
-require 'optparse/URI'
+begin
+  require 'optparse'
+  # require 'optparse/URI'
+rescue LoadError
+  puts "ERROR! : Missing gem \"optparse\"."
+  puts "         Install missing gem using the following command : sudo gem install optparse"
+  exit -1
+end
 
 @options = {}
 @options[:url] = nil
